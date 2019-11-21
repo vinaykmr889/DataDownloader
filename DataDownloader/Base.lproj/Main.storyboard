@@ -1,24 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Data Download View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DataDownloadViewController" customModule="DownloadData" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hPJ-G8-mh6">
+                                <rect key="frame" x="0.0" y="202" width="414" height="694"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="DownloadProgressTableCell" rowHeight="120" id="baw-zL-llg" userLabel="DownloadProgressTableCell" customClass="DownloadProgressTableCell" customModule="DownloadData" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="baw-zL-llg" id="NAL-s1-eYx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Title: Gathering Info..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q6d-nb-iZ3" userLabel="File Name">
+                                                    <rect key="frame" x="25" y="6" width="364" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="N8h-C3-rzW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wy-Ee-PBX" userLabel="Download Details">
+                                                    <rect key="frame" x="25" y="26" width="364" height="80.5"/>
+                                                    <string key="text">File Size: Calculating...
+Downloaded: Calculating...
+Status: Unknown</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Scw-ne-9oC">
+                                                    <rect key="frame" x="25" y="111.5" width="364" height="2"/>
+                                                </progressView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Q6d-nb-iZ3" secondAttribute="trailing" constant="25" id="9Xg-1A-v2D"/>
+                                                <constraint firstAttribute="trailing" secondItem="3Wy-Ee-PBX" secondAttribute="trailing" constant="25" id="Avu-ky-f1K"/>
+                                                <constraint firstItem="Q6d-nb-iZ3" firstAttribute="top" secondItem="NAL-s1-eYx" secondAttribute="top" constant="6" id="D3s-5R-MiX"/>
+                                                <constraint firstItem="Scw-ne-9oC" firstAttribute="top" secondItem="3Wy-Ee-PBX" secondAttribute="bottom" constant="5" id="Dzq-EM-ZYi"/>
+                                                <constraint firstItem="Q6d-nb-iZ3" firstAttribute="leading" secondItem="NAL-s1-eYx" secondAttribute="leading" constant="25" id="LCb-2g-90P"/>
+                                                <constraint firstAttribute="trailing" secondItem="Scw-ne-9oC" secondAttribute="trailing" constant="25" id="QWh-oG-xwp"/>
+                                                <constraint firstAttribute="bottom" secondItem="Scw-ne-9oC" secondAttribute="bottom" constant="6.5" id="YYW-Qm-FwO"/>
+                                                <constraint firstItem="3Wy-Ee-PBX" firstAttribute="top" secondItem="Q6d-nb-iZ3" secondAttribute="bottom" id="hyt-Zc-dsL"/>
+                                                <constraint firstItem="3Wy-Ee-PBX" firstAttribute="leading" secondItem="NAL-s1-eYx" secondAttribute="leading" constant="25" id="iVX-uD-6kA"/>
+                                                <constraint firstItem="Scw-ne-9oC" firstAttribute="leading" secondItem="NAL-s1-eYx" secondAttribute="leading" constant="25" id="rWg-Sl-6Po"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="downloadDetails" destination="3Wy-Ee-PBX" id="sg6-5M-Hy8"/>
+                                            <outlet property="downloadProgress" destination="Scw-ne-9oC" id="XHf-Lf-9Km"/>
+                                            <outlet property="fileName" destination="Q6d-nb-iZ3" id="vLe-xc-sJK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="M8m-ks-8JI"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="GgS-Eh-jbL"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNe-Z9-1yu">
+                                <rect key="frame" x="259" y="155" width="135" height="30"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title=" Start Downloading ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startDownloading:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uWu-86-F6k"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter URL to download file" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I1L-EN-gUK">
+                                <rect key="frame" x="20" y="97" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="CNe-Z9-1yu" firstAttribute="top" secondItem="I1L-EN-gUK" secondAttribute="bottom" constant="24" id="29Z-AS-dg2"/>
+                            <constraint firstItem="hPJ-G8-mh6" firstAttribute="top" secondItem="CNe-Z9-1yu" secondAttribute="bottom" constant="17" id="4Sh-in-k16"/>
+                            <constraint firstItem="CNe-Z9-1yu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="DbC-ay-4b1"/>
+                            <constraint firstAttribute="bottom" secondItem="hPJ-G8-mh6" secondAttribute="bottom" id="FiA-4i-X94"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CNe-Z9-1yu" secondAttribute="trailing" constant="20" id="Fy8-zb-yU6"/>
+                            <constraint firstItem="I1L-EN-gUK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KBg-DV-TBr"/>
+                            <constraint firstItem="hPJ-G8-mh6" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="b5P-PI-sUQ"/>
+                            <constraint firstItem="hPJ-G8-mh6" firstAttribute="top" secondItem="CNe-Z9-1yu" secondAttribute="bottom" constant="17" id="hBw-b0-u0H"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I1L-EN-gUK" secondAttribute="trailing" constant="20" id="jCW-fV-4lX"/>
+                            <constraint firstItem="I1L-EN-gUK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="53" id="r2u-qd-l8z"/>
+                            <constraint firstItem="hPJ-G8-mh6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xaH-bP-dPJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="inputUrl" destination="I1L-EN-gUK" id="okS-9o-tB6"/>
+                        <outlet property="tableView" destination="hPJ-G8-mh6" id="5Mj-4k-9lb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
         </scene>
     </scenes>
 </document>
