@@ -1,0 +1,6 @@
+framework module Pods_DataDownloader {
+  umbrella header "Pods-DataDownloader-umbrella.h"
+
+  export *
+  module * { export * }
+}
